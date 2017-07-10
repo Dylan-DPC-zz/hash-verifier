@@ -1,0 +1,16 @@
+{
+  "name": "dpc/auth-validator",
+  "description": "Package for Nonce Generation & HMac Validation for authentication with APIs",
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {
+    "paragonie/sodium_compat": "^1.1",
+    "dpc/auth-validator": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dpc\\AuthValidator\\": "src"
+    }
+  }
+}
