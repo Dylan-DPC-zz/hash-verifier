@@ -1,5 +1,5 @@
 {
-  "name": "dpc/auth-verifier",
+  "name": "dpc/hash-verifier",
   "description": "Package for Nonce Generation & HMac Validation for authentication with APIs",
   "type": "library",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Dpc\\AuthVerifier\\": "src"
+      "Dpc\\HashVerifier\\": "src"
     }
   }
 }
