@@ -13,9 +13,9 @@ class AuthValidatorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-                $this->publishes([
+        $this->publishes([
             __DIR__ . '/../config/validator.php' => config_path('validator.php'),
-                ], 'config');
+        ], 'config');
 
     }
 

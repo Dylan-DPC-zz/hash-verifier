@@ -27,6 +27,11 @@ class AuthValidator implements AuthValidatorContract
         return $this->generator->generate($content);
     }
 
+    public function matches(Model $content, string $nonce)
+    {
+        return $this->generator->matches($content, $nonce);
+    }
+
     public function validate(array $params)
     {
         return $this->validator->verify($params);
