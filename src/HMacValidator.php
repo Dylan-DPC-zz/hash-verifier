@@ -28,7 +28,7 @@ class HMacValidator implements HMacValidatorContract
     {
         $paramString = http_build_query($params);
         $hash = hash_hmac('sha256', $paramString, config('nonce.secret'));
-        return $hash === $hmac;
+        return hash_equals($hmac, $hash);
 
     }
 }
