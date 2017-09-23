@@ -16,12 +16,16 @@ class NonceGenerator implements NonceContract
     public function store(Model $content, string $nonce): void
     {
         $content->update([
-            config('nonce.key') => $nonce,
+            config('validator.key') => $nonce,
         ]);
     }
 
     public function matches(Model $content, string $nonce): bool
     {
-        return $nonce && data_get($content, $nonce) === $nonce;
+        $stored = data_get($content, config('validator.key'));
+        if(!$stored) {
+            throw new KeyNotFoundException();
+        }
+        return $nonce && $stored === $nonce;
     }
 }
