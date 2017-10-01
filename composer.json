@@ -11,5 +11,12 @@
     "psr-4": {
       "Dpc\\HashVerifier\\": "src"
     }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Dpc\\HashVerifier\\AuthValidatorServiceProvider"
+      ]
+    }
   }
 }
