@@ -1,6 +1,8 @@
 <?php
 
 use Dpc\HashVerifier\AuthValidator;
+use Dpc\HashVerifier\HMacValidator;
+use Dpc\HashVerifier\NonceGenerator;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,8 +18,8 @@ class AuthValidatorTest extends TestCase
     public function setup(): void
     {
         $this->validator = new AuthValidator(
-            $this->createMock(NonceContract::class),
-            $this->createMock(HMacValidatorContract::class)
+            $this->createMock(NonceGenerator::class),
+            $this->createMock(HMacValidator::class)
         );
     }
 
