@@ -13,8 +13,9 @@ class AuthValidator implements AuthValidatorContract
 
     /**
      * AuthValidator constructor.
-     * @param $generator
-     * @param $validator
+     *
+     * @param NonceContract         $generator
+     * @param HMacValidatorContract $validator
      */
     public function __construct(NonceContract $generator, HMacValidatorContract $validator)
     {
@@ -22,17 +23,39 @@ class AuthValidator implements AuthValidatorContract
         $this->validator = $validator;
     }
 
-    public function generateNonce(Model $content): string
+    /**
+     * Generate a nonce
+     *
+     * @param Model $content
+     *
+     * @return string The generated nonce
+     */
+    public function generateNonce(Model $content) : string
     {
         return $this->generator->generate($content);
     }
 
-    public function matches(Model $content, string $nonce)
+    /**
+     * Check if the nonce matches the saved nonce
+     *
+     * @param Model  $content
+     * @param string $nonce
+     *
+     * @return bool
+     */
+    public function matches(Model $content, string $nonce) : bool
     {
         return $this->generator->matches($content, $nonce);
     }
 
-    public function validate(array $params)
+    /**
+     * Validate the parameters
+     *
+     * @param array $params
+     *
+     * @return bool
+     */
+    public function validate(array $params) : bool
     {
         return $this->validator->verify($params);
     }

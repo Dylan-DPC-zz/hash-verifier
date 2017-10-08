@@ -8,9 +8,31 @@ use Illuminate\Database\Eloquent\Model;
 interface AuthValidatorContract
 {
 
-    public function generateNonce(Model $content): string;
+    /**
+     * Generate a nonce
+     *
+     * @param Model $content
+     *
+     * @return string The generated nonce
+     */
+    public function generateNonce(Model $content) : string;
 
-    public function matches(Model $content, string $nonce);
+    /**
+     * Check if the nonce matches the saved nonce
+     *
+     * @param Model  $content
+     * @param string $nonce
+     *
+     * @return bool
+     */
+    public function matches(Model $content, string $nonce) : bool;
 
-    public function validate(array $params);
+    /**
+     * Validate the parameters
+     *
+     * @param array $params
+     *
+     * @return bool
+     */
+    public function validate(array $params) : bool;
 }
