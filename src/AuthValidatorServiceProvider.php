@@ -11,12 +11,9 @@ class AuthValidatorServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot() : void
     {
-        $this->publishes([
-            __DIR__ . '/../config/validator.php' => config_path('validator.php'),
-        ], 'config');
-
+        $this->publishes([__DIR__ . '/../config/validator.php' => config_path('validator.php'),], 'config');
     }
 
     /**
@@ -24,7 +21,7 @@ class AuthValidatorServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register() : void
     {
         $this->app->bind(NonceContract::class, NonceGenerator::class);
         $this->app->bind(HMacValidatorContract::class, HMacValidator::class);
