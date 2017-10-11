@@ -5,10 +5,6 @@ namespace Dpc\HashVerifier;
 use Illuminate\Database\Eloquent\Model;
 use function Sodium\randombytes_buf;
 
-/**
- * Class NonceGenerator
- * @package Dpc\HashVerifier
- */
 class NonceGenerator implements NonceContract
 {
     /**

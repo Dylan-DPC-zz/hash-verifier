@@ -4,10 +4,6 @@ namespace Dpc\HashVerifier;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Interface NonceContract
- * @package Dpc\HashVerifier
- */
 interface NonceContract
 {
     /**

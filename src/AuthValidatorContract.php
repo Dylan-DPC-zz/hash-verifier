@@ -4,10 +4,6 @@ namespace Dpc\HashVerifier;
 
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Interface AuthValidatorContract
- * @package Dpc\HashVerifier
- */
 interface AuthValidatorContract
 {
 
