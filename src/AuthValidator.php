@@ -2,9 +2,12 @@
 
 namespace Dpc\HashVerifier;
 
-
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class AuthValidator
+ * @package Dpc\HashVerifier
+ */
 class AuthValidator implements AuthValidatorContract
 {
     protected $generator;

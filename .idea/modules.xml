@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Authvalidator.iml" filepath="$PROJECT_DIR$/.idea/Authvalidator.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/hash-verifier.iml" filepath="$PROJECT_DIR$/.idea/hash-verifier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/hash-verifier.iml" filepath="$PROJECT_DIR$/.idea/hash-verifier.iml" />
     </modules>
   </component>
 </project>

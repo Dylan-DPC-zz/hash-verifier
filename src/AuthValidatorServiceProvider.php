@@ -4,6 +4,10 @@ namespace Dpc\HashVerifier;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class AuthValidatorServiceProvider
+ * @package Dpc\HashVerifier
+ */
 class AuthValidatorServiceProvider extends ServiceProvider
 {
     /**

@@ -2,7 +2,10 @@
 
 namespace Dpc\HashVerifier\Exceptions;
 
-
+/**
+ * Class HashFailedException
+ * @package Dpc\HashVerifier\Exceptions
+ */
 class HashFailedException extends \Exception
 {
 

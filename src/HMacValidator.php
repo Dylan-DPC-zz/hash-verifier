@@ -2,7 +2,10 @@
 
 namespace Dpc\HashVerifier;
 
-
+/**
+ * Class HMacValidator
+ * @package Dpc\HashVerifier
+ */
 class HMacValidator implements HMacValidatorContract
 {
 
