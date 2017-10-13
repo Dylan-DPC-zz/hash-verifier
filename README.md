@@ -10,7 +10,36 @@ composer require dpc/hash-verifier
 
 ## Usage
 
-TODO: Write usage instructions
+Use required namespaces
+
+```php
+//...
+use Dpc\HashVerifier\AuthValidatorContract;
+use Dpc\HashVerifier\Exceptions\HashFailedException;
+use Dpc\HashVerifier\Exceptions\NonceFailedException;
+//...
+```
+
+Authorization confirm
+
+```php
+//...
+public function confirmAuthorisation($user, string $url)
+{
+    $uriComponents = $this->getUriComponents($url);
+    if(!$this->validator->matches($user, data_get($uriComponents, 'state'))) {
+        throw new NonceFailedException();
+    }
+    if (!$this->validator->validate($uriComponents)) {
+        throw new HashFailedException();
+    }
+    if (!$this->isValidHost($uriComponents)) {
+        throw new InvalidHostException();
+    }
+    return $this->fetchToken($uriComponents);
+}
+//...
+```
 
 ## Contributing
 
