@@ -2,7 +2,6 @@
 
 namespace Dpc\HashVerifier;
 
-
 interface HMacValidatorContract
 {
     /**

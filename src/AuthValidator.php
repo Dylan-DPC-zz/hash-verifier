@@ -2,7 +2,6 @@
 
 namespace Dpc\HashVerifier;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class AuthValidator implements AuthValidatorContract

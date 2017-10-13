@@ -2,7 +2,6 @@
 
 namespace Dpc\HashVerifier\Exceptions;
 
-
 class NonceFailedException extends \Exception
 {
 
