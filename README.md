@@ -4,6 +4,8 @@ hash verification using a nonce & verifying the hmac from the URL for a laravel 
 
 ## Installation
 
+With composer
+
 ```bash
 composer require dpc/hash-verifier
 ```
