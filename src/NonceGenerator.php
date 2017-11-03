@@ -6,26 +6,20 @@ use function Sodium\randombytes_buf;
 
 class NonceGenerator implements NonceContract
 {
-    public function generate(Model $content): string
+    public function generate(): string
     {
         $nonce = base64_encode(randombytes_buf(\Sodium\CRYPTO_SECRETBOX_NONCEBYTES));
-        $this->store($content, $nonce);
+        $this->store($nonce);
         return $nonce;
     }
 
-    public function store(Model $content, string $nonce): void
+    public function store(string $nonce): void
     {
-        $content->update([
-            config('validator.key') => $nonce,
-        ]);
+        session('nonce', $nonce);
     }
 
-    public function matches(Model $content, string $nonce): bool
+    public function matches(string $nonce, string $stored): bool
     {
-        $stored = data_get($content, config('validator.key'));
-        if(!$stored) {
-            throw new KeyNotFoundException();
-        }
         return $nonce && $stored === $nonce;
     }
 }

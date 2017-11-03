@@ -22,14 +22,14 @@ class AuthValidator implements AuthValidatorContract
         $this->validator = $validator;
     }
 
-    public function generateNonce(Model $content): string
+    public function generateNonce(): string
     {
-        return $this->generator->generate($content);
+        return $this->generator->generate();
     }
 
-    public function matches(Model $content, string $nonce)
+    public function matches(string $nonce, string $stored)
     {
-        return $this->generator->matches($content, $nonce);
+        return $this->generator->matches($nonce, $nonce);
     }
 
     public function validate(array $params)

@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 interface AuthValidatorContract
 {
 
-    public function generateNonce(Model $content): string;
+    public function generateNonce(): string;
 
-    public function matches(Model $content, string $nonce);
+    public function matches(string $nonce, string $stored);
 
     public function validate(array $params);
 }

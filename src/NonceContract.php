@@ -3,13 +3,11 @@
 namespace Dpc\HashVerifier;
 
 
-use Illuminate\Database\Eloquent\Model;
-
 interface NonceContract
 {
-    public function generate(Model $content) : string;
+    public function generate() : string;
 
-    public function store(Model $content, string $nonce);
+    public function store(string $nonce);
 
-    public function matches(Model $content, string $nonce): bool;
+    public function matches(string $nonce, string $stored): bool;
 }
