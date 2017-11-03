@@ -3,7 +3,6 @@
 namespace Dpc\HashVerifier;
 
 
-
 interface NonceContract
 {
     /**
@@ -30,4 +29,11 @@ interface NonceContract
      * @return bool
      */
     public function matches(string $nonce, string $stored): bool;
+
+    /**
+     * Returns the nonce stored in the session by calling store()
+     *
+     * @return string
+     */
+    public function getStoredNonce(): string;
 }

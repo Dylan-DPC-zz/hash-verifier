@@ -43,4 +43,14 @@ class NonceGenerator implements NonceContract
     {
         return $nonce && $stored === $nonce;
     }
+
+    /**
+     * Returns the nonce stored in the session by calling store()
+     *
+     * @return string
+     */
+    public function getStoredNonce(): string
+    {
+        return session('nonce');
+    }
 }
