@@ -13,7 +13,7 @@ The service provider will be automatically discovered in Laravel 5.5. Publish th
 php artisan vendor:publish --provider="Dpc\HashVerifier\AuthValidatorServiceProvider"
 ```
 
-This will create a `validator.php` in your config folder. The key indicates the attribute in your `User` table where you are storing the nonce. 
+This will create a `validator.php` in your config folder. 
 
 > Do not use your secret directly in config file. Instead fetch it from the `.env` or server environment variables.
 
