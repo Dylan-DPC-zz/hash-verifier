@@ -18,24 +18,29 @@ This will create a `validator.php` in your config folder. The key indicates the 
 > Do not use your secret directly in config file. Instead fetch it from the `.env` or server environment variables.
 
 ## Usage
-Inject the validator contract in your class:
+Inject the nonce generator contract and/or HMAC validator contract in your class:
 ```php
-  public function __construct(AuthValidatorContract $validator)
+  public function __construct(NonceContract $generator)
     {
-        $this->validator = $validator;
+        $this->generator = $generator;
     }
 ```
 To generate a nonce: 
 ```php
-$nonce = $this->validator->generateNonce($user)
+$nonce = $this->generator->generateNonce($user)
 ```
+The nonce will be automatically stored in the session with key as `nonce'. To retrieve it call:
+```php
+$nonce = $this->generator->getStoredNonce();
+```
+
 Ensure that you do not mutate the nonce.
 
 
-To verify whether the nonce matches, 
+To verify whether the nonce matches
 
 ```php
-$nonceMatches = $this->validator->matches($user, $nonce);
+$nonceMatches = $this->generator->matches($user, $nonce);
 ```
 
 To validate if the hmac matches the components of the URL: 
@@ -57,9 +62,22 @@ This package follows [semver](http://semver.org/). Features introduced & any bre
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## Credits
+## Author
 
 [Dylan DPC](https://github.com/Dylan-DPC)
+
+## Versioning
+
+This package follows semver. Features introduced & any breaking changes created in major releases are mentioned in releases.
+
+## Support
+
+If you need help or have any questions you can:
+
+* Create an issue here
+* Send a tweet to @DPC_22
+* Email me at dylan.dpc@gmail.com
+* DM me on the [larachat](https://larachat.co) slack team (@Dylan DPC)
 
 ## License
 

@@ -25,7 +25,6 @@ class AuthValidatorServiceProvider extends ServiceProvider
     {
         $this->app->bind(NonceContract::class, NonceGenerator::class);
         $this->app->bind(HMacValidatorContract::class, HMacValidator::class);
-        $this->app->bind(AuthValidatorContract::class, AuthValidator::class);
     }
 
 }
