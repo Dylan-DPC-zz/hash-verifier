@@ -2,15 +2,36 @@
 
 namespace Dpc\HashVerifier;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 interface AuthValidatorContract
 {
 
-    public function generateNonce(): string;
+    /**
+     * Generate a nonce
+     *
+     * @param Model $content
+     *
+     * @return string The generated nonce
+     */
+    public function generateNonce() : string;
 
-    public function matches(string $nonce, string $stored);
+    /**
+     * Check if the nonce matches the saved nonce
+     *
+     * @param Model  $content
+     * @param string $nonce
+     *
+     * @return bool
+     */
+    public function matches(string $nonce, string $stored) : bool;
 
-    public function validate(array $params);
+    /**
+     * Validate the parameters
+     *
+     * @param array $params
+     *
+     * @return bool
+     */
+    public function validate(array $params) : bool;
 }

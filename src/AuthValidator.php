@@ -2,7 +2,6 @@
 
 namespace Dpc\HashVerifier;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class AuthValidator implements AuthValidatorContract
@@ -13,8 +12,9 @@ class AuthValidator implements AuthValidatorContract
 
     /**
      * AuthValidator constructor.
-     * @param $generator
-     * @param $validator
+     *
+     * @param NonceContract         $generator
+     * @param HMacValidatorContract $validator
      */
     public function __construct(NonceContract $generator, HMacValidatorContract $validator)
     {
@@ -22,17 +22,37 @@ class AuthValidator implements AuthValidatorContract
         $this->validator = $validator;
     }
 
-    public function generateNonce(): string
+    /**
+     * Generate a nonce
+     *
+     * @return string The generated nonce
+     */
+    public function generateNonce(Model $content) : string
     {
         return $this->generator->generate();
     }
 
-    public function matches(string $nonce, string $stored)
+    /**
+     * Check if the nonce matches the saved nonce
+     *
+     * @param Model  $content
+     * @param string $nonce
+     *
+     * @return bool
+     */
+    public function matches(string $nonce, string $stored) : bool
     {
-        return $this->generator->matches($nonce, $nonce);
+        return $this->generator->matches($nonce, $stored);
     }
 
-    public function validate(array $params)
+    /**
+     * Validate the parameters
+     *
+     * @param array $params
+     *
+     * @return bool
+     */
+    public function validate(array $params) : bool
     {
         return $this->validator->verify($params);
     }
